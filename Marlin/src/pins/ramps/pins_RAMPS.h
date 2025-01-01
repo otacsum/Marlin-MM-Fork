@@ -532,8 +532,8 @@
 #define AUX4_08                               39
 #define AUX4_09                               37
 #define AUX4_10                               35
-#define AUX4_11                               33
-#define AUX4_12                               31
+#define AUX4_11                               31
+#define AUX4_12                               33
 #define AUX4_13                               29
 #define AUX4_14                               27
 #define AUX4_15                               25
