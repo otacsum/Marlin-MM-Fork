@@ -40,6 +40,8 @@
     "editorconfig.editorconfig"
   ],
 
+  //"mounts": ["type=bind,source=/dev/cu.usbmodem1101,target=/dev/cu.usbmodem1101"],
+
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
 
