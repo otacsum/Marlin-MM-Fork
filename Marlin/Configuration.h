@@ -1290,7 +1290,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-// #define S_CURVE_ACCELERATION
+#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1729,13 +1729,13 @@
 
 // The size of the printable area
 #define X_BED_SIZE 250
-#define Y_BED_SIZE 230
+#define Y_BED_SIZE 233
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -10
+#define X_MIN_POS -6
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE
+#define X_MAX_POS 268
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 250
 //#define I_MIN_POS 0
@@ -2175,9 +2175,9 @@
 
 #if ENABLED(SKEW_CORRECTION)
   // Input all length measurements here:
-  #define XY_DIAG_AC 197.54
-  #define XY_DIAG_BD 198.05
-  #define XY_SIDE_AD 140.35
+  #define XY_DIAG_AC 141.07
+  #define XY_DIAG_BD 141.71
+  #define XY_SIDE_AD 100.13
 
   // Or, set the XY skew factor directly:
   //#define XY_SKEW_FACTOR 0.0
