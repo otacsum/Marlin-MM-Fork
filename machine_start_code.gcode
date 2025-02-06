@@ -16,24 +16,39 @@ G92 E0.0
 ; Cleaning Nozzle.
 G1 Z4 F300 ; Move above brush height
 G1 X264 F15000 ; Rapid to starting position
-; First brush edges
-G1 Z0.7 F300 ; Move down into brush
-G1 Y33 F1800 ; Brush Forward
-G1 X256 F1800; Move over slightly
-G1 Y0 F1800 ; Brush backward
-; Then brush the chamfers
-G1 Z2 F300 ; Move up slightly
-G1 X261 F15000 ; Move to cleaning brush
-G1 Y33 F1800 ; Brush forward
-G1 X258 F1800 ; Move over slightly
-G1 Y0 F1800 ; Brush backward
-; finally brush the tip then move off the brush
-G1 Z3 F300 ; Move up slightly
-G1 X257 F1800 ; Move over slightly
-G1 Y33 F1800 ; Move forward
-G1 X260 F1800 ; Move over slightly
-G1 Y0 F1800 ; Move backward
-G1 X250 F15000 ; Move off the brush.
+G1 Z2 F300
+G91 ; Relative Positioning
+; Position: X264 Y0
+; Brush left and right repeatedly while moving forward
+M808 L18 ; Loop 19 times (36 mm, 0 start)
+; Brush left and right, then move forward
+G1 X-10 F1800
+G1 X10 F1800
+G1 Y2 F1800
+M808
+; Position: X264 Y36
+; Brush back and forth repeatedly while moving right
+M808 L5 ; Loop 5 times (10 mm)
+; Brush backward and forward, then move over
+G1 Y-36 F1800
+G1 Y36 F1800
+G1 X-2 F1800
+M808
+; Position: X254 Y36
+G90 ; Absolute Positioning
+
+G1 Z0.7 F300 ; Lower a little to get the flats of the nozzle
+M808 L3 ; Brush the edge 3 times
+G1 Y0 F1800
+G1 Y36 F1800
+M808
+G1 X264 F1800 ; Move back left
+M808 L3 ; Brush the other edge 3 times
+G1 Y0 F1800
+G1 Y36 F1800
+M808
+
+G1 X250 Y38 F15000 ; Move off the brush.
 
 ; Priming Nozzle
 G1 X249.5 Y50 F15000 ; Move to priming area
