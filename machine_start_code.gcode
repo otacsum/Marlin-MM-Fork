@@ -16,7 +16,7 @@ G92 E0.0
 ; Cleaning Nozzle.
 G1 Z4 F300 ; Move above brush height
 G1 X264 F15000 ; Rapid to starting position
-G1 Z2 F300
+G1 Z2.5 F300
 G91 ; Relative Positioning
 ; Position: X264 Y0
 ; Brush left and right repeatedly while moving forward
@@ -39,18 +39,19 @@ G90 ; Absolute Positioning
 
 G1 Z0.7 F300 ; Lower a little to get the flats of the nozzle
 M808 L3 ; Brush the edge 3 times
-G1 Y0 F1800
-G1 Y36 F1800
+G1 Y0 F8000
+G1 Y36 F8000
 M808
-G1 X264 F1800 ; Move back left
+G1 X264 F8000 ; Move back left
 M808 L3 ; Brush the other edge 3 times
-G1 Y0 F1800
-G1 Y36 F1800
+G1 Y0 F8000
+G1 Y36 F8000
 M808
 
 G1 X250 Y38 F15000 ; Move off the brush.
 
 ; Priming Nozzle
+M83 ; extruder relative mode
 G1 X249.5 Y50 F15000 ; Move to priming area
 G1 Z0.25 F300 ; Move to layer height
 G1 Y220  E17.4828 F1800 ; print priming line 1
