@@ -30,9 +30,9 @@ M808
 ; Brush back and forth repeatedly while moving right
 M808 L5 ; Loop 5 times (10 mm)
 ; Brush backward and forward, then move over
-G1 Y-36 F1800
-G1 Y36 F1800
-G1 X-2 F1800
+G1 Y-36 F6000
+G1 Y36 F6000
+G1 X-2 F6000
 M808
 ; Position: X254 Y36
 G90 ; Absolute Positioning
