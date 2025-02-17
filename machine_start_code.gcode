@@ -15,10 +15,10 @@ G92 E0.0
 
 ; Cleaning Nozzle.
 G1 Z4 F500 ; Move above brush height
-G1 X264 F45000 ; Rapid to starting position
+G1 X264 Y8 F45000 ; Rapid to starting position
 G1 Z2.5 F500
 G91 ; Relative Positioning
-; Position: X264 Y0
+; Position: X264 Y8
 ; Brush left and right repeatedly while moving forward
 M808 L18 ; Loop 19 times (36 mm, 0 start)
 ; Brush left and right, then move forward
@@ -26,7 +26,7 @@ G1 X-10 F1800
 G1 X10 F1800
 G1 Y2 F1800
 M808
-; Position: X264 Y36
+; Position: X264 Y44
 ; Brush back and forth repeatedly while moving right
 M808 L5 ; Loop 5 times (10 mm)
 ; Brush backward and forward, then move over
@@ -34,19 +34,23 @@ G1 Y-36 F6000
 G1 Y36 F6000
 G1 X-2 F6000
 M808
-; Position: X254 Y36
+; Position: X254 Y44
 G90 ; Absolute Positioning
 
 G1 Z0.7 F500 ; Lower a little to get the flats of the nozzle
-M808 L3 ; Brush the edge 3 times
-G1 Y0 F8000
-G1 Y36 F8000
+M808 L2 ; Brush the edges 2 times counter-clockwise
+G1 Y-3 F8000
+G1 X264 F8000
+G1 Y44 F8000
+G1 X254 F8000
+
+M808 L2 ; Brush the edges 2 times clockwise
+G1 X264 F8000
+G1 Y-3 F8000
+G1 X254 F8000
+G1 Y44 F8000
 M808
-G1 X264 F8000 ; Move back left
-M808 L3 ; Brush the other edge 3 times
-G1 Y0 F8000
-G1 Y36 F8000
-M808
+
 
 G1 X250 Y38 F45000 ; Move off the brush.
 

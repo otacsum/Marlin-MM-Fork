@@ -1733,7 +1733,7 @@
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS -6
-#define Y_MIN_POS 0
+#define Y_MIN_POS -8
 #define Z_MIN_POS 0
 #define X_MAX_POS 268
 #define Y_MAX_POS Y_BED_SIZE
@@ -2136,7 +2136,7 @@
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
-#define HOMING_FEEDRATE_MM_M { (45000), (45000), (500) }
+#define HOMING_FEEDRATE_MM_M { (3000), (3000), (400) }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
