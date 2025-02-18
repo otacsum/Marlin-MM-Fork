@@ -3,7 +3,8 @@ G1{if max_layer_z < max_print_height} Z{z_offset+min(max_layer_z+2, max_print_he
 G4 ; wait
 M104 S0 ; turn off extruder
 M140 S0 ; turn off heatbed
-G1 X-6 Y0 F45000 ; Park extruder
+G1 X0 Y0 F45000 ; Return home safely (in case still on layer 1)
+G1 X-6 Y-8 F3000 ; Park extruder
 M106 S75 ; Turn fan down to 30%
 M84 ; Disable motors
 G4 P30000 ; Wait 30 seconds to let the fan duct cool

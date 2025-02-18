@@ -6,7 +6,7 @@ M104 S[first_layer_temperature] ; set extruder temp
 M140 S[first_layer_bed_temperature] ; set bed temp
 G28 ; home all
 G1 Z5 F500 ; move nozzle up 20mm
-G1 X-6 F1800 ; move nozzle off bed
+G1 X-6 Y-8 F1800 ; move nozzle off bed
 M106 S75 ; turn fan up to 30%
 M190 S[first_layer_bed_temperature] ; wait for bed temp
 M109 S[first_layer_temperature] ; wait for extruder temp
@@ -15,7 +15,7 @@ G92 E0.0
 
 ; Cleaning Nozzle.
 G1 Z4 F500 ; Move above brush height
-G1 X264 Y8 F45000 ; Rapid to starting position
+G1 X264 Y0 F45000 ; Rapid to starting position
 G1 Z2.5 F500
 G91 ; Relative Positioning
 ; Position: X264 Y8
@@ -27,8 +27,10 @@ G1 X10 F1800
 G1 Y2 F1800
 M808
 ; Position: X264 Y44
+G1 X-2 F1800
+; Position: X262 Y44
 ; Brush back and forth repeatedly while moving right
-M808 L5 ; Loop 5 times (10 mm)
+M808 L4 ; Loop 5 times (10 mm)
 ; Brush backward and forward, then move over
 G1 Y-36 F6000
 G1 Y36 F6000
@@ -38,11 +40,6 @@ M808
 G90 ; Absolute Positioning
 
 G1 Z0.7 F500 ; Lower a little to get the flats of the nozzle
-M808 L2 ; Brush the edges 2 times counter-clockwise
-G1 Y-3 F8000
-G1 X264 F8000
-G1 Y44 F8000
-G1 X254 F8000
 
 M808 L2 ; Brush the edges 2 times clockwise
 G1 X264 F8000
@@ -51,8 +48,15 @@ G1 X254 F8000
 G1 Y44 F8000
 M808
 
+M808 L2 ; Brush the edges 2 times counter-clockwise
+G1 Y-3 F8000
+G1 X264 F8000
+G1 Y44 F8000
+G1 X254 F8000
+M808
 
-G1 X250 Y38 F45000 ; Move off the brush.
+
+G1 X250 Y50 F45000 ; Move off the brush.
 
 ; Priming Nozzle
 M83 ; extruder relative mode
